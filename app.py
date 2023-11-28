@@ -79,6 +79,11 @@ if __name__ == "__main__":
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
+        remote_server_uri = "https://dagshub.com/s172444s/mlflow_experiments.mlflow"
+        mlflow.set_tracking_uri(remote_server_uri)
+
+        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
         # Model registry does not work with file store
         if tracking_url_type_store != "file":
             # Register the model
