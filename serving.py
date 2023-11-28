@@ -12,7 +12,32 @@ inference_request = {
     'density': 0.9978,
     'pH': 3.51,
     'sulphates': 0.56,
-    'alcohol': 9.4}]#[[6.7,3.3,5.7,2.1]]
+    'alcohol': 9.4}, 
+    {
+    'fixed acidity': 26,
+    'volatile acidity': 0.5,
+    'citric acid': 0,
+    'residual sugar': 0,
+    'chlorides': 0,
+    'free sulfur dioxide': 0,
+    'total sulfur dioxide': 0,
+    'density': 56,
+    'pH': 3.51,
+    'sulphates': 0.23,
+    'alcohol': 0}, 
+    {
+    "fixed acidity": 7.3,
+    "volatile acidity": 0.65,
+    "citric acid": 0,
+    "residual sugar": 1.2,
+    "chlorides": 0.065,
+    "free sulfur dioxide": 15,
+    "total sulfur dioxide": 21,
+    "density": 0.9946,
+    "pH": 3.39,
+    "sulphates": 0.47,
+    "alcohol": 10
+}]
 }
 
 
