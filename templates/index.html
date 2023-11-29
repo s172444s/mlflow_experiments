@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffd3b6; /* Light peach background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #632e56; /* Dark purple header */
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            color: #632e56; /* Dark purple heading */
+        }
+
+        p {
+            color: #555;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #632e56; /* Dark purple button */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1em;
+        }
+
+        button:hover {
+            background-color: #8e6095; /* Lighter purple on hover */
+        }
+
+        footer {
+            background-color: #632e56; /* Dark purple footer */
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #632e56; /* Dark purple button */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1em;
+        }
+
+        label:hover {
+            background-color: #8e6095; /* Lighter purple on hover */
+        }
+
+        #predictionResult {
+            margin-top: 1em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wine Quality Detection</h1>
+    </header>
+
+    <section>
+        <h2>About</h2>
+        <p>
+            Welcome to the Wine Quality Detection webpage! Explore and analyze wine quality based on various factors.
+        </p>
+        <label for="jsonFile">Load JSON File</label>
+        <input type="file" id="jsonFile" accept=".json" onchange="handleFileSelect(event)">
+        <button onclick="startAnalysis()">Start Analysis</button>
+
+        <!-- Display area for the prediction result -->
+        <div id="predictionResult"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Wine Quality Detection</p>
+    </footer>
+
+    <script>
+        function handleFileSelect(event) {
+            const fileInput = event.target;
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const jsonContent = e.target.result;
+
+                    // Send the JSON data to the server for prediction
+                    fetch('/predict', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: jsonContent,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Display the prediction result in the "predictionResult" div
+                        document.getElementById('predictionResult').innerHTML = 'Prediction: ' + JSON.stringify(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        function startAnalysis() {
+            // Update this function as needed
+            // This function can be used for additional analysis logic if required
+            alert("Select a JSON file to start analysis!");
+        }
+    </script>
+</body>
+</html>
