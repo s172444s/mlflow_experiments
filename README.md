@@ -17,3 +17,22 @@ or running (based on production, or staging):
 mlflow models serve --model-uri models:/ElasticnetWineModel/Production --no-conda --port 5000
 
 2. python serving.py (We can change the serving data as we wish)
+
+
+## Flask deployment
+
+Running python app_flask.py, opening the port localhost/5000, and selecting a json file including the wine info. Here is an example of json file content:
+
+{
+    "fixed acidity": 7.4,
+    "volatile acidity": 0.7,
+    "citric acid": 0.0,  
+    "residual sugar": 1.9,
+    "chlorides": 0.076,
+    "free sulfur dioxide": 11.0,
+    "total sulfur dioxide": 34.0,
+    "density": 0.9978,
+    "pH": 3.51,
+    "sulphates": 0.56,
+    "alcohol": 9.4
+}
