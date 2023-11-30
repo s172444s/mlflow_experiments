@@ -28,7 +28,7 @@ def predict():
         prediction = model.predict(data)
 
         # Return the prediction as JSON
-        return jsonify(prediction.tolist()[0])
+        return jsonify(round(prediction.tolist()[0], 2))
     except Exception as e:
         return jsonify({"error": str(e)})
 
