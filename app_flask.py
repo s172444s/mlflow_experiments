@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the model
-model = mlflow.pyfunc.load_model(model_uri="runs:/e7e1ea35d4334e5e838354cbd4201a91/model")
+model = mlflow.pyfunc.load_model(model_uri="runs:/7ec96ab0ed4a4d5b853a2b13fb6553f3/model")
 
 @app.route("/", methods=['GET'])
 @cross_origin()

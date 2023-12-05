@@ -41,7 +41,7 @@ inference_request = {
 }
 
 
-endpoint = "http://localhost:5000/invocations"
+endpoint = "http://localhost:9000/invocations"
 
 response = requests.post(endpoint, json=inference_request)
 
